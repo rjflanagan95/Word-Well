@@ -14,7 +14,7 @@ module.exports = function(app) {
       res.json(dbWord);
     });
   });
-
+  
   // Delete a word by id
   app.delete("/api/words/:id", function(req, res) {
     db.Word.destroy({ where: { id: req.params.id } }).then(function(dbWord) {

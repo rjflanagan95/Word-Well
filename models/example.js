@@ -1,7 +1,18 @@
+// module.exports = function(sequelize, DataTypes) {
+//   var Example = sequelize.define("Example", {
+//     text: DataTypes.STRING,
+//     description: DataTypes.TEXT
+//   });
+//   return Example;
+// };
+
 module.exports = function(sequelize, DataTypes) {
-  var Example = sequelize.define("Example", {
+  var Word = sequelize.define("Word", {
     text: DataTypes.STRING,
-    description: DataTypes.TEXT
+    definition: DataTypes.TEXT,
+    etymology: DataTypes.TEXT,
+    pronunciationLink: DataTypes.STRING,
+    comment: DataTypes.TEXT
   });
-  return Example;
+  return Word;
 };

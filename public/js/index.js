@@ -1,47 +1,48 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $wordText = $("#word-text");
+var $wordDefinition = $("#word-definition");
+var $wordEtymology = $("#word-etymology");
+var $wordPronunciation = $("#word-pronunciation");
+var $wordComment = $("#word-comment");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $wordList = $("#word-list");
 
-// The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveWord: function(word) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/words",
+      data: JSON.stringify(word)
     });
   },
-  getExamples: function() {
+  getWords: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/words",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteWord: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/words/" + id,
       type: "DELETE"
     });
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+var refreshWords = function() {
+  API.getWords().then(function(data) {
+    var $words = data.map(function(word) {
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .text(word.text)
+        .attr("href", "/word/" + word.id);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": example.id
+          "data-id": word.id
         })
         .append($a);
 
@@ -54,46 +55,47 @@ var refreshExamples = function() {
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $wordList.empty();
+    $wordList.append($words);
   });
 };
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var word = {
+    text: $wordText.val().trim(),
+    definition: $wordDefinition.val().trim(),
+    etymology: $wordEtymology.val().trim(),
+    pronunciation: $wordPronunciation.val().trim(),
+    comment: $wordComment.val().trim()
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+  if (!(word.text && word.definition)) {
+    alert("You must enter a word and definition!");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  API.saveWord(word).then(function() {
+    refreshWords();
+    $wordText.val("");
+    $wordDefinition.val("");
+    $wordEtymology.val("");
+    $wordPronunciation.val("");
+    $wordComment.val("");
   });
-
-  $exampleText.val("");
-  $exampleDescription.val("");
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
+  API.deleteWord(idToDelete).then(function() {
+    refreshWords();
   });
 };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+$wordList.on("click", ".delete", handleDeleteBtnClick);

@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
     text: DataTypes.STRING,
     definition: DataTypes.TEXT,
     etymology: DataTypes.TEXT,
-    pronunciationLink: DataTypes.STRING,
+    pronunciation: DataTypes.STRING,
     comment: DataTypes.TEXT
   });
   return Word;

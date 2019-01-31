@@ -1,0 +1,100 @@
+body {
+  background-color : #778198; 
+  /* color: #1D261D 
+  width: 98%;
+  margin: 0 auto; */
+  margin: 0; 
+  height: auto; 
+  /* position: static; 
+  font-family: 'Jockey One', sans-serif;
+  background-image: url("../images/bananas.png") */ 
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.navbar {
+  background-color: #596172; 
+}
+
+.navbar-brand{
+  font-family: 'Bangers', cursive; 
+  font-size: 40px; 
+}
+
+/* 
+.header{
+  width: 70%; 
+  margin-top: 20px; 
+  margin-left: 175px; 
+  align-items: center; 
+  display: inline-block;
+  background-color: #676B6F; 
+  color: #ffffff; 
+  font-size: 85px;
+  font-weight: bold; 
+} 
+*/ 
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.container{
+  width: 100%; 
+  margin: 0 auto; 
+  margin-top: 10px; 
+}
+
+.jumbotron { 
+  /* background-color: #9DCBED; */ 
+  background-color: #656E8F; 
+  font-family: 'Bangers', cursive; 
+}
+
+#date{
+  text-align: center;  
+  font-size: 40px; 
+}
+
+.display-4{
+  text-align: center;   
+  font-size: 100px; 
+  font-weight: 800; 
+  /* font-family: 'Carter One', cursive; */ 
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.word{
+  font-size: 50px; 
+  font-weight: bold; 
+}
+
+.word-section{
+  background-color: #818CA5; 
+  font-size: 24px; 
+  font-family: Verdana, Geneva, Tahoma, sans-serif; 
+  padding: 10px; 
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+#comment-form{ 
+  background-color: #818CA5; 
+  text-align: center; 
+  font-size: 24px; 
+  padding: 10px; 
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.footer{ 
+  /* position: relative; 
+  bottom: 0; 
+  left: 0; 
+  right: 0; 
+  width: 100%;
+  height: 30px; */
+  background-color: #596172;
+  font-size: 12px;
+  color: #ffffff;
+  text-align: center;
+}

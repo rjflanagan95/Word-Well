@@ -1,23 +1,11 @@
 var db = require("../models");
 
-var dict = require("../public/js/oxfordLib");
-
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.Word.findAll({}).then(function(dbWords) {
       res.render("index", {
-        msg: "Welcome!",
         words: dbWords
-      });
-    });
-  });
-
-  app.get("/random", function(req, res) {
-    dict(function(newWord) {
-      console.log(newWord);
-      res.render("random", {
-        randomWord: newWord
       });
     });
   });

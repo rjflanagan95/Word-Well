@@ -10,9 +10,9 @@ module.exports = function(app) {
     });
   });
 
+  // Get one random word from the dictionary API
   app.get("/api/random", function(req, res) {
     dict(function(newWord) {
-      console.log(newWord);
       res.json(newWord);
     });
   });

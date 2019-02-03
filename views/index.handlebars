@@ -2,9 +2,8 @@
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <button id="random-word" href="/random" class="btn btn-secondary">Get a new word</button>
+        <br>
+        <h2>Word-a-Day</h2>
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
             <label for="word-text">Word</label>
@@ -12,7 +11,7 @@
           </div>
           <div class="form-group">
             <label for="word-definition">Word Definition</label>
-            <textarea class="form-control" id="word-definition" aria-describedby="word-definition" placeholder="Enter Word Definition"></textarea>
+            <textarea class="form-control text-area text-box multi-line" id="word-definition" aria-describedby="word-definition" placeholder="Enter Word Definition"></textarea>
           </div>
           <div class="form-group">
             <label for="word-etymology">Word Etymology</label>
@@ -26,8 +25,10 @@
             <label for="word-comment">User Comments</label>
             <textarea class="form-control" id="word-comment" aria-describedby="word-comment" placeholder="Enter any comments"></textarea>
           </div>
+          <button id="random-word" class="btn btn-success float-left">Get a new word</button>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
+
         <h3>Words:</h3>
         <ul id="word-list" class="list-group">
           {{#each words}}

@@ -93,6 +93,29 @@ var handleFormSubmit = function(event) {
   });
 };
 
+var handleRandomWord = function(event) {
+  event.preventDefault();
+
+  // get the data from the dictionary API and fill the submit form
+  API.getRandom().then(function(data) {
+    $wordText.val(data.text);
+
+    // stringing together definition with example
+    var defString = "";
+    if (data.definition.length === 1) {
+      defString += data.definition[i].definition + " (ex: " + data.definition[i].examples + ")";
+    } else {
+        for (var i = 0; i < data.definition.length; i++) {
+          defString += "Def #" + (i+1).toString() + ": " + data.definition[i].definition + " (ex: " + data.definition[i].examples + "); ";
+        }
+    }
+
+    $wordDefinition.val(defString);
+    $wordEtymology.val(data.etymology);
+    $wordPronunciation.val(data.pronunciation);
+  });
+}
+
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
     .parent()
@@ -107,4 +130,4 @@ var handleDeleteBtnClick = function() {
 $submitBtn.on("click", handleFormSubmit);
 $wordList.on("click", ".delete", handleDeleteBtnClick);
 
-$genRandom.on("click", API.getRandom);
+$genRandom.on("click", handleRandomWord);

@@ -6,6 +6,7 @@ var $wordPronunciation = $("#word-pronunciation");
 var $wordComment = $("#word-comment");
 var $submitBtn = $("#submit");
 var $wordList = $("#word-list");
+var $genRandom = $("#random-word");
 
 var API = {
   saveWord: function(word) {
@@ -16,6 +17,12 @@ var API = {
       type: "POST",
       url: "api/words",
       data: JSON.stringify(word)
+    });
+  },
+  getRandom: function() {
+    return $.ajax({
+      url: "api/random",
+      type: "GET"
     });
   },
   getWords: function() {
@@ -99,3 +106,5 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $wordList.on("click", ".delete", handleDeleteBtnClick);
+
+$genRandom.on("click", API.getRandom);

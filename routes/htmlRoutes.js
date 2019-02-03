@@ -1,5 +1,7 @@
 var db = require("../models");
 
+var dict = require("../public/js/oxfordLib");
+
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
@@ -7,6 +9,15 @@ module.exports = function(app) {
       res.render("index", {
         msg: "Welcome!",
         words: dbWords
+      });
+    });
+  });
+
+  app.get("/random", function(req, res) {
+    dict(function(newWord) {
+      console.log(newWord);
+      res.render("random", {
+        randomWord: newWord
       });
     });
   });

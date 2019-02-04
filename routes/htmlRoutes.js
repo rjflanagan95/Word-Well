@@ -5,7 +5,6 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.Word.findAll({}).then(function(dbWords) {
       res.render("index", {
-        msg: "Welcome!",
         words: dbWords
       });
     });

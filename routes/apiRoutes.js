@@ -1,10 +1,19 @@
 var db = require("../models");
 
+var dict = require("../public/js/oxfordLib");
+
 module.exports = function(app) {
   // Get all words
   app.get("/api/words", function(req, res) {
     db.Word.findAll({}).then(function(dbWords) {
       res.json(dbWords);
+    });
+  });
+
+  // Get one random word from the dictionary API
+  app.get("/api/random", function(req, res) {
+    dict(function(newWord) {
+      res.json(newWord);
     });
   });
 

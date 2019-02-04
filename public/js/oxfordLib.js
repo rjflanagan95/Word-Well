@@ -74,11 +74,11 @@ module.exports =  function getWord(callback){
         // if definition array exist set wordInfo with porper values else return message
         if(definitionsArr){
             wordInfo = {
-                randomWord: randomWord, 
-                etymologies: etymologies,
-                pronounciation: audioFile,
-                phoneticSpelling:phoneticSpelling,  
-                wordDef: wordDef
+                text: randomWord,
+                definition: wordDef,
+                etymology: etymologies,
+                pronunciation: audioFile,
+                phoneticSpelling: phoneticSpelling
             }
         
         }else{

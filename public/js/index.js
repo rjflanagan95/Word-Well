@@ -98,6 +98,11 @@ var handleRandomWord = function(event) {
 
   // get the data from the dictionary API and fill the submit form
   API.getRandom().then(function(data) {
+    //if error occurred  alert user (alert is a place holder...)
+    if(data.status === 'error'){
+      alert("Error occured try again");
+    }
+
     $wordText.val(data.text);
 
     // stringing together definition with example

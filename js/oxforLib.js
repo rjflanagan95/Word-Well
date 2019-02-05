@@ -7,17 +7,13 @@ module.exports =  function getWord(callback){
 
     var dict = new Dictionary(keys.app_id, keys.app_key);
     var randomWord = randomWords();
-   
 
     //global variable
     var wordInfo = {};
     
-   
+
     dict.find(randomWord,function(error,data){   
-        //error handling
-        if (error) {
-            return callback({ status: "error" });
-        }
+        if(error) return console.log(error); 
 
         //local variables 
         var wordDef = [];
@@ -78,11 +74,11 @@ module.exports =  function getWord(callback){
         // if definition array exist set wordInfo with porper values else return message
         if(definitionsArr){
             wordInfo = {
-                text: randomWord,
-                definition: wordDef,
-                etymology: etymologies,
-                pronunciation: audioFile,
-                phoneticSpelling: phoneticSpelling
+                randomWord: randomWord, 
+                etymologies: etymologies,
+                pronounciation: audioFile,
+                phoneticSpelling:phoneticSpelling,  
+                wordDef: wordDef
             }
         
         }else{
@@ -90,7 +86,6 @@ module.exports =  function getWord(callback){
                 randomWord: "Definition is not available for " +  randomWord       
         }
         } 
-        
         callback(wordInfo);
     });
 

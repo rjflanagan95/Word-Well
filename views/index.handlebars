@@ -1,9 +1,16 @@
 <div id="home">
+  <nav class="navbar navbar-light">
+    <a class="navbar-brand">WORD-A-DAY</a>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+    </form>
+  </nav>
   <div class="container">
-    <div class="row">
+    <div class="row word-section">
       <div class="col-8 offset-2">
         <br>
-        <h2>Word-a-Day</h2>
+        {{!-- <h2>Word-a-Day</h2> --}}
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
             <label for="word-text">Word</label>
@@ -28,7 +35,13 @@
           <button id="random-word" class="btn btn-success float-left">Get a new word</button>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
+      </div>
+    </div>
 
+    <br>
+
+    <div class="row word-section">
+      <div class="col-8 offset-2">
         <h3>Words:</h3>
         <ul id="word-list" class="list-group">
           {{#each words}}
@@ -40,8 +53,16 @@
         </ul>
       </div>
     </div>
+
   </div>
 </div>
+
+<footer class="footer mt-auto py-3">
+  <div class="container">
+    <!-- <span class="text-muted"> footer </span> -->
+    <p><a href="/api/..">API .. List</a> | <a href="https://github.com/rjflanagan95/word-a-day">GitHub Repo</a> | <a href="https://heroku.com/rjflanagan95/word-a-day">Heroku Deployment</a>
+  </div>
+</footer>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>

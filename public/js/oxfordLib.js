@@ -7,6 +7,7 @@ module.exports =  function getWord(callback){
 
     var dict = new Dictionary(keys.app_id, keys.app_key);
     var randomWord = randomWords();
+    //var randomWord = "had";
    
 
     //global variable

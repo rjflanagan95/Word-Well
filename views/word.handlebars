@@ -3,17 +3,24 @@
     <div class="col-8 offset-2">
       <div class="card mt-4">
         <div class="card-body">
-          <h5 class="card-title">Word</h5>
-          <p><strong>ID</strong>: {{word.id}}</p>
+          {{!-- <h5 class="card-title">Word</h5> --}}
+          {{!-- <p><strong>ID</strong>: {{word.id}}</p> --}}
+          <br>
           <p><strong>Word</strong>: {{word.text}}</p>
+          <br>
           <p><strong>Definition:</strong> {{word.definition}}</p>
+          <br>
           <p><strong>Etymology:</strong> {{word.etymology}}</p>
+          <br>
           <p><strong>Pronunciation:</strong></p>
+          <br>
           <audio controls>
             <source src={{word.pronunciation}}>
           </audio>
+          <br><br>
           <p><strong>User Comment:</strong> {{word.comment}}</p>
-          <a href="/">← Back To Home</a>
+          <br> <br>
+          <a href="/">← Back To Home Page</a>
         </div>
       </div>
     </div>

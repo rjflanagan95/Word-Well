@@ -1,3 +1,9 @@
+/* *{
+	margin:0;
+	Padding: 0;
+	box-sizing: border-box;
+} */
+
 body {
   background-color : #778198; 
   /* color: #1D261D 
@@ -71,7 +77,17 @@ body {
 .word-section{
   background-color: #818CA5; 
   font-size: 24px; 
-  font-family: Verdana, Geneva, Tahoma, sans-serif; 
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif;  */
+  font-family: 'Viga', sans-serif; 
+  padding: 10px; 
+}
+
+.card-body{
+
+  background-color: #818CA5; 
+  font-size: 24px; 
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif;  */
+  font-family: 'Viga', sans-serif; 
   padding: 10px; 
 }
 
@@ -80,6 +96,7 @@ body {
 #comment-form{ 
   background-color: #818CA5; 
   text-align: center; 
+  font-family: 'Viga', sans-serif;
   font-size: 24px; 
   padding: 10px; 
 }
@@ -98,3 +115,13 @@ body {
   color: #ffffff;
   text-align: center;
 }
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/* font-family: Verdana, Geneva, Tahoma, sans-serif; 
+font-family: 'Amaranth', sans-serif; 
+font-family: 'Bree Serif', serif;
+font-family: 'Gentium Basic', serif;
+font-family: 'Lobster', cursive;
+font-family: 'Passion One', cursive;
+font-family: 'Vidaloka', serif; */

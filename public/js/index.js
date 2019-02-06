@@ -120,8 +120,7 @@ var handleRandomWord = function(event) {
         }
     }
 
-   // , e.g., 
-
+  
     $wordDefinition.val(defString);
     $wordEtymology.val(data.etymology);
     $wordPronunciation.val(data.pronunciation);

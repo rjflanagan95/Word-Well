@@ -7,6 +7,7 @@ module.exports =  function getWord(callback){
 
     var dict = new Dictionary(keys.app_id, keys.app_key);
     var randomWord = randomWords();
+    //var randomWord = "had";
    
 
     //global variable
@@ -90,7 +91,7 @@ module.exports =  function getWord(callback){
                 randomWord: "Definition is not available for " +  randomWord       
         }
         } 
-        
+        console.log(randomWord, wordInfo)
         callback(wordInfo);
     });
 

@@ -101,6 +101,7 @@ var handleRandomWord = function(event) {
   API.getRandom().then(function(data) {
     //if error occurred  clears fields from previous word and call handleRandomWord function for get a new word.
     if(data.status === 'error'){
+      // alert("bugs!!!!")
       $wordDefinition.val("");
       $wordEtymology.val("");
       $wordPronunciation.val("");
@@ -112,12 +113,14 @@ var handleRandomWord = function(event) {
     // stringing together definition with example
     var defString = "";
     if (data.definition.length === 1) {
-      defString += data.definition[0].definition + " (ex: " + data.definition[0].examples + ")";
+      defString += data.definition[0].definition + ", e.g., " + data.definition[0].examples;
     } else {
         for (var i = 0; i < data.definition.length; i++) {
-          defString += "Def #" + (i+1).toString() + ": " + data.definition[i].definition + " (ex: " + data.definition[i].examples + "); ";
+          defString += (i+1).toString() + ": " + data.definition[i].definition + ", e.g., " + data.definition[i].examples + "; " + "\n";
         }
     }
+
+   // , e.g., 
 
     $wordDefinition.val(defString);
     $wordEtymology.val(data.etymology);

@@ -91,7 +91,7 @@ module.exports =  function getWord(callback){
                 randomWord: "Definition is not available for " +  randomWord       
         }
         } 
-        console.log(randomWord, wordInfo)
+        
         callback(wordInfo);
     });
 

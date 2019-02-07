@@ -104,8 +104,73 @@ var handleFormSubmit = function(event) {
 
 var handleRandomWord = function(event) {
   event.preventDefault();
-
   // get the data from the dictionary API and fill the submit form
+  randomWordGenerator();
+};
+
+var handleSearchWord = function(event) {
+  event.preventDefault();
+
+  var searchTerm = $searchField.val().trim();
+
+  API.getSearch(searchTerm).then(function(data) {
+    if (data.status === "error") {
+      $wordText.val("");
+      $wordDefinition.val("");
+      $wordEtymology.val("");
+      $wordPronunciation.val("");
+      $wordComment.val("");
+      handleSearchWord();
+    } else {
+      $searchField.val("");
+      $wordText.val(data.text);
+
+      // stringing together definition with example
+      var defString = "";
+      if (data.definition.length === 1) {
+        defString +=
+          data.definition[0].definition +
+          ", e.g., " +
+          data.definition[0].examples;
+      } else {
+        for (var i = 0; i < data.definition.length; i++) {
+          defString +=
+            (i + 1).toString() +
+            ": " +
+            data.definition[i].definition +
+            ", e.g., " +
+            data.definition[i].examples +
+            "; " +
+            "\n";
+        }
+      }
+
+      $wordDefinition.val(defString);
+      $wordEtymology.val(data.etymology);
+      $wordPronunciation.val(data.pronunciation);
+    }
+  });
+};
+
+var handleDeleteBtnClick = function() {
+  var idToDelete = $(this)
+    .parent()
+    .attr("data-id");
+
+  API.deleteWord(idToDelete).then(function() {
+    refreshWords();
+  });
+};
+
+// Add event listeners to the submit and delete buttons
+$submitBtn.on("click", handleFormSubmit);
+$wordList.on("click", ".delete", handleDeleteBtnClick);
+
+$genRandom.on("click", handleRandomWord);
+$searchBtn.on("click", handleSearchWord);
+
+// get the data from the dictionary API and fill the submit form
+randomWordGenerator = function() {
   API.getRandom().then(function(data) {
     //if error occurred  clears fields from previous word and call handleRandomWord function for get a new word.
     if (data.status === "error") {
@@ -144,56 +209,4 @@ var handleRandomWord = function(event) {
   });
 };
 
-var handleSearchWord = function(event) {
-  event.preventDefault();
-
-  var searchTerm = $searchField.val().trim();
-
-  API.getSearch(searchTerm).then(function(data) {
-    if (data.status === 'error') {
-      // alert("bugs!!!!")
-      $wordText.val("");
-      $wordDefinition.val("");
-      $wordEtymology.val("");
-      $wordPronunciation.val("");
-      $wordComment.val("");
-      handleSearchWord();
-    } else {
-      $searchField.val("");
-      $wordText.val(data.text);
-
-      // stringing together definition with example
-      var defString = "";
-      if (data.definition.length === 1) {
-        defString += data.definition[0].definition + ", e.g., " + data.definition[0].examples;
-      } else {
-          for (var i = 0; i < data.definition.length; i++) {
-            defString += (i+1).toString() + ": " + data.definition[i].definition + ", e.g., " + data.definition[i].examples + "; " + "\n";
-          }
-      }
-  
-     // , e.g., 
-  
-      $wordDefinition.val(defString);
-      $wordEtymology.val(data.etymology);
-      $wordPronunciation.val(data.pronunciation);
-    }
-  });
-}
-
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deleteWord(idToDelete).then(function() {
-    refreshWords();
-  });
-};
-
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$wordList.on("click", ".delete", handleDeleteBtnClick);
-
-$genRandom.on("click", handleRandomWord);
-$searchBtn.on("click", handleSearchWord);
+randomWordGenerator();

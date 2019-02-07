@@ -12,9 +12,28 @@ module.exports = function(app) {
 
   // Get one random word from the dictionary API
   app.get("/api/random", function(req, res) {
-    dict(function(newWord) {
+    var searchTerm = "random";
+    dict(searchTerm, function(newWord) {
       res.json(newWord);
     });
+  });
+
+  app.post("/api/search", function(req, res) {
+    var searchTerm = req.body.text;
+    searchTerm = searchTerm.replace(/['"]+/g, '');
+    dict(searchTerm, function(newWord) {
+      res.json(newWord);
+    });
+    // db.Word.findOne({ where: { text : req.body }}).then(function(dbWords) {
+    //   if (dbWords) {
+    //     console.log("This word is already in your database");
+    //   } else {
+    //     console.log("Let's add the word to the database");
+    //     dict(req.body, function(newWord) {
+    //       res.json(newWord);
+    //     });
+    //   }
+    // });
   });
 
   // Create a new word

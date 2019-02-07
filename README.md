@@ -1,4 +1,4 @@
-# groupProject2
+# Word-a-Day
 
 Vocabulary app where users are given a random word of the day. The user can see the definition, etymology, and pronunciation of the word.
 

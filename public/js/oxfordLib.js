@@ -1,16 +1,21 @@
-module.exports = function getWord(callback) {
-  // Dependencies
-  require("dotenv").config();
-  var Dictionary = require("oxford-dictionary-api");
-  var randomWords = require("random-words");
-  var keys = require("./keys.js");
+module.exports =  function getWord(searchParam, callback){
+    // Dependencies
+    require('dotenv').config();
+    var Dictionary = require("oxford-dictionary-api");
+    var randomWords = require('random-words');
+    var keys = require('./keys.js');
 
-  var dict = new Dictionary(keys.app_id, keys.app_key);
-  var randomWord = randomWords();
-  //var randomWord = "had";
+    var dict = new Dictionary(keys.app_id, keys.app_key);
 
-  //global variable
-  var wordInfo = {};
+    var randomWord;
+    if (searchParam === "random") {
+        randomWord = randomWords();
+    } else {
+        randomWord = searchParam;
+    }
+ 
+    //global variable
+    var wordInfo = {};
 
   dict.find(randomWord, function(error, data) {
     //error handling

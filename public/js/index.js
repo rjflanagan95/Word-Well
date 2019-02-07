@@ -7,6 +7,8 @@ var $wordComment = $("#word-comment");
 var $submitBtn = $("#submit");
 var $wordList = $("#word-list");
 var $genRandom = $("#random-word");
+var $searchField = $("#search-field");
+var $searchBtn = $("#search-btn");
 
 var API = {
   saveWord: function(word) {
@@ -23,6 +25,13 @@ var API = {
     return $.ajax({
       url: "api/random",
       type: "GET"
+    });
+  },
+  getSearch: function(word) {
+    return $.ajax({
+      url: "api/search",
+      type: "POST",
+      data: { text: JSON.stringify(word) }
     });
   },
   getWords: function() {
@@ -135,6 +144,43 @@ var handleRandomWord = function(event) {
   });
 };
 
+var handleSearchWord = function(event) {
+  event.preventDefault();
+
+  var searchTerm = $searchField.val().trim();
+
+  API.getSearch(searchTerm).then(function(data) {
+    if (data.status === 'error') {
+      // alert("bugs!!!!")
+      $wordText.val("");
+      $wordDefinition.val("");
+      $wordEtymology.val("");
+      $wordPronunciation.val("");
+      $wordComment.val("");
+      handleSearchWord();
+    } else {
+      $searchField.val("");
+      $wordText.val(data.text);
+
+      // stringing together definition with example
+      var defString = "";
+      if (data.definition.length === 1) {
+        defString += data.definition[0].definition + ", e.g., " + data.definition[0].examples;
+      } else {
+          for (var i = 0; i < data.definition.length; i++) {
+            defString += (i+1).toString() + ": " + data.definition[i].definition + ", e.g., " + data.definition[i].examples + "; " + "\n";
+          }
+      }
+  
+     // , e.g., 
+  
+      $wordDefinition.val(defString);
+      $wordEtymology.val(data.etymology);
+      $wordPronunciation.val(data.pronunciation);
+    }
+  });
+}
+
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
     .parent()
@@ -150,3 +196,4 @@ $submitBtn.on("click", handleFormSubmit);
 $wordList.on("click", ".delete", handleDeleteBtnClick);
 
 $genRandom.on("click", handleRandomWord);
+$searchBtn.on("click", handleSearchWord);

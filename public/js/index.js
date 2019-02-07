@@ -8,7 +8,6 @@ var $submitBtn = $("#submit");
 var $wordList = $("#word-list");
 var $genRandom = $("#random-word");
 
-
 var API = {
   saveWord: function(word) {
     return $.ajax({
@@ -100,32 +99,41 @@ var handleRandomWord = function(event) {
   // get the data from the dictionary API and fill the submit form
   API.getRandom().then(function(data) {
     //if error occurred  clears fields from previous word and call handleRandomWord function for get a new word.
-    if(data.status === 'error'){
+    if (data.status === "error") {
       // alert("bugs!!!!")
       $wordDefinition.val("");
       $wordEtymology.val("");
       $wordPronunciation.val("");
       handleRandomWord(event);
     }
-    
+
     $wordText.val(data.text);
 
     // stringing together definition with example
     var defString = "";
     if (data.definition.length === 1) {
-      defString += data.definition[0].definition + ", e.g., " + data.definition[0].examples;
+      defString +=
+        data.definition[0].definition +
+        ", e.g., " +
+        data.definition[0].examples;
     } else {
-        for (var i = 0; i < data.definition.length; i++) {
-          defString += (i+1).toString() + ": " + data.definition[i].definition + ", e.g., " + data.definition[i].examples + "; " + "\n";
-        }
+      for (var i = 0; i < data.definition.length; i++) {
+        defString +=
+          (i + 1).toString() +
+          ": " +
+          data.definition[i].definition +
+          ", e.g., " +
+          data.definition[i].examples +
+          "; " +
+          "\n";
+      }
     }
 
-  
     $wordDefinition.val(defString);
     $wordEtymology.val(data.etymology);
     $wordPronunciation.val(data.pronunciation);
   });
-}
+};
 
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this)

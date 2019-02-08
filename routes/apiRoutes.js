@@ -21,19 +21,18 @@ module.exports = function(app) {
   app.post("/api/search", function(req, res) {
     var searchTerm = req.body.text;
     searchTerm = searchTerm.replace(/['"]+/g, '');
-    dict(searchTerm, function(newWord) {
-      res.json(newWord);
+
+    db.Word.findOne({ where: { text : searchTerm }}).then(function(dbWords) {
+      if (dbWords) {
+        // if the word is already in the database, redirect to that word's page
+        res.json(dbWords);
+      } else {
+        // otherwise, get all the info for the new word
+        dict(searchTerm, function(newWord) {
+          res.json(newWord);
+        });
+      }
     });
-    // db.Word.findOne({ where: { text : req.body }}).then(function(dbWords) {
-    //   if (dbWords) {
-    //     console.log("This word is already in your database");
-    //   } else {
-    //     console.log("Let's add the word to the database");
-    //     dict(req.body, function(newWord) {
-    //       res.json(newWord);
-    //     });
-    //   }
-    // });
   });
 
   // Create a new word

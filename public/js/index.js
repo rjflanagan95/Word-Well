@@ -120,26 +120,26 @@ var handleSearchWord = function(event) {
       $wordText.val(data.text);
 
       // stringing together definition with example
-      var defString = "";
-      if (data.definition.length === 1) {
-        defString +=
-          data.definition[0].definition +
-          ", e.g., " +
-          data.definition[0].examples;
-      } else {
-        for (var i = 0; i < data.definition.length; i++) {
-          defString +=
-            (i + 1).toString() +
-            ": " +
-            data.definition[i].definition +
-            ", e.g., " +
-            data.definition[i].examples +
-            "; " +
-            "\n";
-        }
-      }
+      // var defString = "";
+      // if (data.definition.length === 1) {
+      //   defString +=
+      //     data.definition[0].definition +
+      //     ", e.g., " +
+      //     data.definition[0].examples;
+      // } else {
+      //   for (var i = 0; i < data.definition.length; i++) {
+      //     defString +=
+      //       (i + 1).toString() +
+      //       ": " +
+      //       data.definition[i].definition +
+      //       ", e.g., " +
+      //       data.definition[i].examples +
+      //       "; " +
+      //       "\n";
+      //   }
+      // }
 
-      $wordDefinition.val(defString);
+      $wordDefinition.val(data.definition);
       $wordEtymology.val(data.etymology);
       $wordPronunciation.val(data.pronunciation);
     }

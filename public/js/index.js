@@ -102,12 +102,6 @@ var handleFormSubmit = function(event) {
   });
 };
 
-var handleRandomWord = function(event) {
-  event.preventDefault();
-  // get the data from the dictionary API and fill the submit form
-  randomWordGenerator();
-};
-
 var handleSearchWord = function(event) {
   event.preventDefault();
 
@@ -166,7 +160,11 @@ var handleDeleteBtnClick = function() {
 $submitBtn.on("click", handleFormSubmit);
 $wordList.on("click", ".delete", handleDeleteBtnClick);
 
-$genRandom.on("click", handleRandomWord);
+$genRandom.on("click", function(event) {
+  event.preventDefault();
+  randomWordGenerator();
+});
+
 $searchBtn.on("click", handleSearchWord);
 
 // get the data from the dictionary API and fill the submit form
@@ -178,7 +176,8 @@ randomWordGenerator = function() {
       $wordDefinition.val("");
       $wordEtymology.val("");
       $wordPronunciation.val("");
-      handleRandomWord(event);
+      // handleRandomWord(event);
+      randomWordGenerator();
     }
 
     $wordText.val(data.text);
@@ -209,4 +208,5 @@ randomWordGenerator = function() {
   });
 };
 
+// generate a random word on loading the page
 randomWordGenerator();

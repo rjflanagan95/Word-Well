@@ -119,27 +119,35 @@ var handleSearchWord = function(event) {
       $searchField.val("");
       $wordText.val(data.text);
 
-      // stringing together definition with example
-      // var defString = "";
-      // if (data.definition.length === 1) {
-      //   defString +=
-      //     data.definition[0].definition +
-      //     ", e.g., " +
-      //     data.definition[0].examples;
-      // } else {
-      //   for (var i = 0; i < data.definition.length; i++) {
-      //     defString +=
-      //       (i + 1).toString() +
-      //       ": " +
-      //       data.definition[i].definition +
-      //       ", e.g., " +
-      //       data.definition[i].examples +
-      //       "; " +
-      //       "\n";
-      //   }
-      // }
+      // if the word is getting pulled from the API, the definition is returned as an array
+      // this code strings the definitions and examples together
+      if ((data.definition).isArray) {
+        var defString = "";
+        if (data.definition.length === 1) {
+          defString +=
+            data.definition[0].definition +
+            ", e.g., " +
+            data.definition[0].examples;
+        } else {
+          for (var i = 0; i < data.definition.length; i++) {
+            defString +=
+              (i + 1).toString() +
+              ": " +
+              data.definition[i].definition +
+              ", e.g., " +
+              data.definition[i].examples +
+              "; " +
+              "\n";
+          }
+        }
 
-      $wordDefinition.val(data.definition);
+        $wordDefinition.val(defString);
+      } else {
+        // if the word was already in the DB, it will be returned as a ready-to-use string
+        $wordDefinition.val(data.definition);
+      }
+
+      // $wordDefinition.val(data.definition);
       $wordEtymology.val(data.etymology);
       $wordPronunciation.val(data.pronunciation);
     }
@@ -209,4 +217,4 @@ randomWordGenerator = function() {
 };
 
 // generate a random word on loading the page
-randomWordGenerator();
+// randomWordGenerator();

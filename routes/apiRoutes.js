@@ -26,6 +26,7 @@ module.exports = function(app) {
       if (dbWords) {
         // if the word is already in the database, redirect to that word's page
         res.json(dbWords);
+        // res.redirect("/word/" + dbWords.id);
       } else {
         // otherwise, get all the info for the new word
         dict(searchTerm, function(newWord) {

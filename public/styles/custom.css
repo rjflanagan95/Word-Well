@@ -7,10 +7,9 @@
 body {
   /* background-color : #778198;  */
   background-color: #ffffff; 
-  /* color: #1D261D 
-  width: 98%;
-  margin: 0 auto; */
-  margin: 0; 
+  color: #1D261D; 
+  width: 100%;
+  margin: 0 auto;
   height: auto; 
   /* position: static; 
   font-family: 'Jockey One', sans-serif;
@@ -79,7 +78,7 @@ body {
 
 #random-word{
   font-family: 'Viga', sans-serif; 
-  
+
 }
 
 .row{
@@ -102,10 +101,10 @@ body {
   background-color: #E5794D; 
 
   /* font-family: 'Viga', sans-serif;  */
-  /* font-family: 'Bree Serif', serif; */
-  font-family: 'Passion One', cursive;
+  font-family: 'Bree Serif', serif;
+  /* font-family: 'Passion One', cursive; */
 
-  font-size: 32px; 
+  font-size: 22px; 
   padding: 10px 0; 
   padding-left: -10px; 
 }
@@ -134,7 +133,8 @@ body {
   width: 100%;
   height: 35px;
   font-size: 12px;
-  background-color: #E1A857;
+  /* background-color: #E1A857; */
+  background-color: #38B195; 
   color: black;
   text-align: center;
 }
@@ -168,10 +168,13 @@ body {
 
 .card-body{
 
-  background-color: #4381F8; 
-  font-size: 24px; 
+  /* background-color: #206555;  */
+  background-color: #02654D; 
+  background-color: #4E7E73; 
+  font-size: 12px; 
   /* font-family: Verdana, Geneva, Tahoma, sans-serif;  */
   /*font-family: 'Viga', sans-serif; */ 
+  font-family: 'Courier New', Courier, monospace; 
   padding: 10px; 
   margin-bottom: 10px; 
 }

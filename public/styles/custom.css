@@ -1,11 +1,12 @@
-/* *{
+*{
 	margin:0;
 	Padding: 0;
 	box-sizing: border-box;
-} */
+}
 
 body {
-  background-color : #778198; 
+  /* background-color : #778198;  */
+  background-color: #ffffff; 
   /* color: #1D261D 
   width: 98%;
   margin: 0 auto; */
@@ -19,7 +20,9 @@ body {
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 .navbar {
-  background-color: #596172; 
+  /* background-color: #596172;  */
+  /* background-color: #E1ED8F;  */
+  background-color: #FFB257; 
 }
 
 .navbar-brand{
@@ -43,16 +46,23 @@ body {
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-.container{
+/* .container{
   width: 100%; 
   margin: 0 auto; 
   margin-top: 10px; 
-}
+} */
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 .jumbotron { 
   /* background-color: #9DCBED; */ 
-  background-color: #656E8F; 
+  /* background-color: #656E8F;  */
+  /* height: 100vh; */
+  height: 300px; 
+  width: 100vh; 
+  background-color: #F8CC6C; 
   font-family: 'Bangers', cursive; 
+  width: 100%; 
 }
 
 #date{
@@ -67,6 +77,18 @@ body {
   /* font-family: 'Carter One', cursive; */ 
 }
 
+#random-word{
+  font-family: 'Viga', sans-serif; 
+  
+}
+
+.row{
+  margin-top: 10px; 
+  margin-bottom: 20px; 
+  background-color: #FCA561; 
+  /* background-color: #A7ED84;  */
+}
+
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 .word{
@@ -75,20 +97,21 @@ body {
 }
 
 .word-section{
-  background-color: #818CA5; 
-  font-size: 24px; 
-  /* font-family: Verdana, Geneva, Tahoma, sans-serif;  */
-  font-family: 'Viga', sans-serif; 
-  padding: 10px; 
+  /* background-color: #818CA5;*/
+  /* background-color: #A7ED84;  */
+  background-color: #E5794D; 
+
+  /* font-family: 'Viga', sans-serif;  */
+  /* font-family: 'Bree Serif', serif; */
+  font-family: 'Passion One', cursive;
+
+  font-size: 32px; 
+  padding: 10px 0; 
+  padding-left: -10px; 
 }
 
-.card-body{
-
-  background-color: #818CA5; 
-  font-size: 24px; 
-  /* font-family: Verdana, Geneva, Tahoma, sans-serif;  */
-  font-family: 'Viga', sans-serif; 
-  padding: 10px; 
+.clearfix{
+  margin-left: -25px; 
 }
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
@@ -104,21 +127,61 @@ body {
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 .footer{ 
-  /* position: relative; 
+  position: relative; 
   bottom: 0; 
   left: 0; 
   right: 0; 
   width: 100%;
-  height: 30px; */
-  background-color: #596172;
+  height: 35px;
   font-size: 12px;
-  color: #ffffff;
+  background-color: #E1A857;
+  color: black;
   text-align: center;
 }
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
+/* .list-group-item{
+  background-color: #ffffff; 
+  font-size: 12px; */
+  /* padding: 5px; 
+  margin: 5px;  */
+  /* border: 0px;
+  width: 100%;
+  height: 2em;
+}  */
+
+/* .btn-danger{
+  height: 10px; 
+  width: 10px; 
+} */
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.card-body{
+
+  background-color: #4381F8; 
+  font-size: 24px; 
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif;  */
+  /*font-family: 'Viga', sans-serif; */ 
+  padding: 10px; 
+  margin-bottom: 10px; 
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
 /* font-family: Verdana, Geneva, Tahoma, sans-serif; 
+font-family: 'Viga', sans-serif;
 font-family: 'Amaranth', sans-serif; 
 font-family: 'Bree Serif', serif;
 font-family: 'Gentium Basic', serif;

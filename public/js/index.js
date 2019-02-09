@@ -117,7 +117,9 @@ var handleSearchWord = function(event) {
       $wordEtymology.val("");
       $wordPronunciation.val("");
       $wordComment.val("");
-      handleSearchWord();
+      // throw an alert that the word's not available
+      // ask user to search a different word
+      // handleSearchWord();
     } else {
       console.log(data.definition);
       $searchField.val("");

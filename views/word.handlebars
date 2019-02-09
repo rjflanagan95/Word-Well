@@ -1,29 +1,34 @@
-<div class="container">
+<div class="container-full-bg">
   <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-4">
-        <div class="card-body">
-          {{!-- <h5 class="card-title">Word</h5> --}}
-          {{!-- <p><strong>ID</strong>: {{word.id}}</p> --}}
-          <br>
-          <p><strong>Word</strong>: {{word.text}}</p>
-          <br>
-          <p><strong>Definition:</strong> {{word.definition}}</p>
-          <br>
-          <p><strong>Etymology:</strong> {{word.etymology}}</p>
-          <br>
-          <p><strong>Pronunciation:</strong></p>
-          <br>
-          <audio controls>
-            <source src={{word.pronunciation}}>
-          </audio>
-          <br><br>
-          <p><strong>User Comment:</strong> {{word.comment}}</p>
-          <br> <br>
-            <a href="/" class="btn btn-outline-light">Back To Home Page</a>
-          <br> <br>
+    <div class="col-md-12">
+
+      <div class="col-8 offset-2">
+        <div class="card mt-4">
+          <div class="card-body">
+            {{!-- <h5 class="card-title">Word</h5> --}}
+            {{!-- <p><strong>ID</strong>: {{word.id}}</p> --}}
+            <br>
+            <p><strong>Word</strong>: {{word.text}}</p>
+            <br>
+            <p><strong>Definition:</strong> {{word.definition}}</p>
+            <br>
+            <p><strong>Etymology:</strong> {{word.etymology}}</p>
+            <br>
+            <p><strong>Pronunciation:</strong></p>
+            <br>
+            <audio controls>
+              <source src={{word.pronunciation}}>
+            </audio>
+            <br><br>
+            <p><strong>User Comment:</strong> {{word.comment}}</p>
+            <br> <br>
+              <a href="/" class="btn btn-outline-light">Back To Home Page</a>
+            <br> <br>
+          </div>
         </div>
       </div>
+
     </div>
+
   </div>
 </div>

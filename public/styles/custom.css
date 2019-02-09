@@ -6,7 +6,7 @@
 
 body {
   /* background-color : #778198;  */
-  background-color: #ffffff; 
+  background-color: #FCA561; 
   color: #1D261D; 
   width: 100%;
   margin: 0 auto;
@@ -84,7 +84,7 @@ body {
 .row{
   margin-top: 10px; 
   margin-bottom: 20px; 
-  background-color: #FCA561; 
+  background-color: #E5794D; 
   /* background-color: #A7ED84;  */
 }
 
@@ -110,8 +110,20 @@ body {
 }
 
 .clearfix{
-  margin-left: -25px; 
+  margin-left: -50px; 
 }
+
+.form-group{
+  padding: 5px; 
+}
+
+.titles{ 
+  margin-bottom: 5px;
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 

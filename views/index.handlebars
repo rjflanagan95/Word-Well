@@ -37,27 +37,37 @@
             <form class="clearfix mb-4" action="POST">
 
               <div class="form-group">
-                <label for="word-text">Word</label>
+                <div class="titles">
+                  <label for="word-text">Word</label>
+                </div>
                 <input type="text" id="word-text" class="form-control" aria-describedby="word-text" placeholder="Enter a Word">
               </div>
 
               <div class="form-group">
-                <label for="word-definition">Word Definition</label>
+                <div class="titles">
+                  <label for="word-definition">Word Definition</label>
+                </div>
                 <textarea class="form-control text-area text-box multi-line" id="word-definition" aria-describedby="word-definition" placeholder="Enter Word Definition"></textarea>
               </div>
 
               <div class="form-group">
-                <label for="word-etymology">Word Etymology</label>
+                <div class="titles">
+                  <label for="word-etymology">Word Etymology</label>
+                </div>
                 <textarea class="form-control" id="word-etymology" aria-describedby="word-etymology" placeholder="Enter Word Etymology"></textarea>
               </div>
 
               <div class="form-group">
-                <label for="word-pronunciation">Word Pronunciation</label>
+                <div class="titles">
+                  <label for="word-pronunciation">Word Pronunciation</label>
+                </div>
                 <textarea class="form-control" id="word-pronunciation" aria-describedby="word-pronunciation" placeholder="Link to pronunciation"></textarea>
               </div>
 
               <div class="form-group">
-                <label for="word-comment">User Comments</label>
+                <div class="titles">
+                  <label for="word-comment">Write</label>
+                </div>
                 <textarea class="form-control" id="word-comment" aria-describedby="word-comment" placeholder="Enter any comments"></textarea>
               </div>
 
@@ -76,7 +86,10 @@
         <div class="row word-section">
           <div class="col-8 offset-2">
             
-            <h3>Words:</h3>
+            <div class="titles">
+              <h3>Words:</h3>
+            </div>
+            
             <ul id="word-list" class="list-group">
               {{#each words}}
               <li data-id="{{this.id}}" class="list-group-item">

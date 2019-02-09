@@ -178,17 +178,20 @@ body {
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-.card-body{
+.col-md-12{
+  background-color: #FCA561; 
+}
 
-  /* background-color: #206555;  */
-  background-color: #02654D; 
-  background-color: #4E7E73; 
-  font-size: 12px; 
-  /* font-family: Verdana, Geneva, Tahoma, sans-serif;  */
+.card-body{
+  /* background-color: #206555; 
+  background-color: #02654D;  */
+  background-color: #FEC955; 
+  color: black; 
+  font-size: 20px; 
+  font-family: Verdana, Geneva, Tahoma, sans-serif; 
   /*font-family: 'Viga', sans-serif; */ 
-  font-family: 'Courier New', Courier, monospace; 
-  padding: 10px; 
-  margin-bottom: 10px; 
+  /* padding: 10px;  */
+  /* margin-bottom: 10px;  */
 }
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */

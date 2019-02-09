@@ -220,4 +220,4 @@ randomWordGenerator = function() {
 };
 
 // generate a random word on loading the page
-// randomWordGenerator();
+randomWordGenerator();

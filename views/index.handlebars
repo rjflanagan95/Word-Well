@@ -1,73 +1,79 @@
 <div id="home">
-  <nav class="navbar navbar-light">
-    <a class="navbar-brand">WORD-A-DAY</a>
-    <form class="form-inline">
-      <input id="search-field" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button id="search-btn" class="btn btn-outline-light my-2 my-sm-0" type="submit">Submit</button>
-    </form>
-  </nav>
-  <div class="container">
-        
-    <div class="jumbotron">
-      <!-- <div class="container"> -->
-        {{!-- <h3 id="date">WORD OF: FEBRUARY 1, 2019</h3> --}}
-        <h3 id="date">WORD OF: <span id="currentDate"></span></h3>
-        {{!-- <h3 id="datex">DTAE: </h3> --}}
-        <h1 class="display-4">VOCABULARY WORD</h1>
 
-      <!-- </div> -->
+
+      </div>
+    {{!-- </div> --}}
     </div>
 
-    <div class="row word-section">
-      <div class="col-8 offset-2">
-        <br>
-        {{!-- <h2>Word-a-Day</h2> --}}
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="word-text">Word</label>
-            <input type="text" id="word-text" class="form-control" aria-describedby="word-text" placeholder="Enter a Word">
-          </div>
-          <div class="form-group">
-            <label for="word-definition">Word Definition</label>
-            <textarea class="form-control text-area text-box multi-line" id="word-definition" aria-describedby="word-definition" placeholder="Enter Word Definition"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="word-etymology">Word Etymology</label>
-            <textarea class="form-control" id="word-etymology" aria-describedby="word-etymology" placeholder="Enter Word Etymology"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="word-pronunciation">Word Pronunciation</label>
-            <textarea class="form-control" id="word-pronunciation" aria-describedby="word-pronunciation" placeholder="Link to pronunciation"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="word-comment">User Comments</label>
-            <textarea class="form-control" id="word-comment" aria-describedby="word-comment" placeholder="Enter any comments"></textarea>
-          </div>
-          <button id="random-word" class="btn btn-outline-light float-left">Get a new word</button>
-          <button id="submit" class="btn btn-outline-light float-right">Submit</button>
-        </form>
-      </div>
-    </div>
-    
+    <div class="row">
 
-    <br>
+      <div class="col-md-7"> 
 
-    <div class="row word-section">
-      <div class="col-8 offset-2">
-        <h3>Words:</h3>
-        <ul id="word-list" class="list-group">
-          {{#each words}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="word/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+        <div class="row word-section">
+
+          <div class="col-8 offset-2">
+
+            <form class="clearfix mb-4" action="POST">
+
+              <div class="form-group">
+                <label for="word-text">Word</label>
+                <input type="text" id="word-text" class="form-control" aria-describedby="word-text" placeholder="Enter a Word">
+              </div>
+
+              <div class="form-group">
+                <label for="word-definition">Word Definition</label>
+                <textarea class="form-control text-area text-box multi-line" id="word-definition" aria-describedby="word-definition" placeholder="Enter Word Definition"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="word-etymology">Word Etymology</label>
+                <textarea class="form-control" id="word-etymology" aria-describedby="word-etymology" placeholder="Enter Word Etymology"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="word-pronunciation">Word Pronunciation</label>
+                <textarea class="form-control" id="word-pronunciation" aria-describedby="word-pronunciation" placeholder="Link to pronunciation"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="word-comment">User Comments</label>
+                <textarea class="form-control" id="word-comment" aria-describedby="word-comment" placeholder="Enter any comments"></textarea>
+              </div>
+
+              {{!-- <button id="random-word" class="btn btn-success float-left">Get a new word</button> --}}
+              <button id="submit" class="btn btn-primary float-right">Save This Word</button>
+
+            </form>
+
+          </div>
+
       </div>
+
+      <div class="col-md-5"> 
+
+        <div class="row word-section">
+
+          <div class="col-8 offset-2">
+
+            <h3>Words:</h3>
+            <ul id="word-list" class="list-group">
+              {{#each words}}
+              <li data-id="{{this.id}}" class="list-group-item">
+                <a href="word/{{this.id}}">{{this.text}}</a>
+                <button class="btn btn-danger float-right delete">ｘ</button>
+              </li>
+              {{/each}}
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
   </div>
-</div>
 
 <footer class="footer mt-auto py-3">
   <div class="container">
@@ -78,3 +84,5 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+
+</div>

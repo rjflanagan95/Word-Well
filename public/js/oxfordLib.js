@@ -34,7 +34,7 @@ module.exports =  function getWord(searchParam, callback){
     if (etyArr) {
       var etymologies = etyArr[0];
     } else {
-      var etymologies = "Etymologies is not available";
+      var etymologies = "Etymology not available";
     }
 
     //ensuring that pronunciations exist  in API
@@ -46,8 +46,8 @@ module.exports =  function getWord(searchParam, callback){
       var phoneticSpelling =
         data.results[0].lexicalEntries[0].pronunciations[0].phoneticSpelling;
     } else {
-      var audioFile = "Audio is not available";
-      var phoneticSpelling = "PhoneticSpelling is not available";
+      var audioFile = "Audio not available";
+      var phoneticSpelling = "Phonetic spelling not available";
     }
 
     //loop though defArr and veryfy that definitions array exist
@@ -59,19 +59,17 @@ module.exports =  function getWord(searchParam, callback){
       if (examplesArr) {
         var examples = examplesArr[0].text;
       } else {
-        var examples = "Example is not available";
+        var examples = "Example not available";
       }
 
       // if definition array exist get  list of definitions, examples and shortDefinitions
       //if definition do not exist print message to notify user
       if (definitionsArr) {
         var definitions = defArr[i].definitions[0];
-        // var shortDefinitions = defArr[i].shortDefinitions[0];
 
         var defObj = {
           definition: definitions,
           examples: examples
-          //   shortDefinitions: shortDefinitions
         };
 
         //push defObj in wordInfo array
@@ -90,7 +88,7 @@ module.exports =  function getWord(searchParam, callback){
       };
     } else {
       wordInfo = {
-        randomWord: "Definition is not available for " + randomWord
+        randomWord: "Definition not available for " + randomWord
       };
     }
 

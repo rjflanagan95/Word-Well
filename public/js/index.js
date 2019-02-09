@@ -119,6 +119,7 @@ var handleSearchWord = function(event) {
       $wordComment.val("");
       handleSearchWord();
     } else {
+      console.log(data.definition);
       $searchField.val("");
       $wordText.val(data.text);
       

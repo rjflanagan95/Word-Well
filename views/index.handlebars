@@ -1,13 +1,16 @@
 <div id="home">
-  <nav class="navbar navbar-light">
-    <a class="navbar-brand">WORD-A-DAY</a>
-    <form class="form-inline">
-      <input id="search-field" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button id="search-btn" class="btn btn-outline-light my-2 my-sm-0" type="submit">Submit</button>
-    </form>
-  </nav>
-  <div class="container">
-        
+
+  <div class="container-full-bg">
+
+    <nav class="navbar navbar-light">
+      <a class="navbar-brand">WORD WELL</a>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+      </form>
+    </nav>
+
+    {{!-- <div class="row"> --}}
     <div class="jumbotron">
         <h3 id="date">WORD OF: <span id="currentDate"></span></h3>
         <h1 class="display-4">VOCABULARY WORD</h1>
@@ -37,31 +40,34 @@
             <label for="word-comment">User Comments</label>
             <textarea class="form-control" id="word-comment" aria-describedby="word-comment" placeholder="Enter any comments"></textarea>
           </div>
-          <button id="random-word" class="btn btn-outline-light float-left">Get a new word</button>
-          <button id="submit" class="btn btn-outline-light float-right">Submit</button>
-        </form>
-      </div>
-    </div>
-    
 
-    <br>
-
-    <div class="row word-section">
-      <div class="col-8 offset-2">
-        <h3>Words:</h3>
-        <ul id="word-list" class="list-group">
-          {{#each words}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="word/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
       </div>
+
+      <div class="col-md-5"> 
+
+        <div class="row word-section">
+
+          <div class="col-8 offset-2">
+
+            <h3>Words:</h3>
+            <ul id="word-list" class="list-group">
+              {{#each words}}
+              <li data-id="{{this.id}}" class="list-group-item">
+                <a href="word/{{this.id}}">{{this.text}}</a>
+                <button class="btn btn-danger float-right delete">ｘ</button>
+              </li>
+              {{/each}}
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
   </div>
-</div>
 
 <footer class="footer mt-auto py-3">
   <div class="container">
@@ -71,3 +77,5 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+
+</div>

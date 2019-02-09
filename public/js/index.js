@@ -9,6 +9,9 @@ var $wordList = $("#word-list");
 var $genRandom = $("#random-word");
 var $searchField = $("#search-field");
 var $searchBtn = $("#search-btn");
+var $date = $("#currentDate");
+var date = moment().format("MMM Do YY");
+$date.html(date);
 
 var API = {
   saveWord: function(word) {

@@ -119,12 +119,16 @@ var handleSearchWord = function(event) {
       $wordComment.val("");
       handleSearchWord();
     } else {
+      console.log(data.definition);
       $searchField.val("");
       $wordText.val(data.text);
-
-      // if the word is getting pulled from the API, the definition is returned as an array
-      // this code strings the definitions and examples together
-      if ((data.definition).isArray) {
+      
+      // if the word was already in the DB, it will be returned as a ready-to-use string
+      if (typeof data.definition === "string") {
+        $wordDefinition.val(data.definition);
+      } else {
+        // if the word is getting pulled from the API, the definition is returned as an array
+        // this code strings the definitions and examples together
         var defString = "";
         if (data.definition.length === 1) {
           defString +=
@@ -145,12 +149,8 @@ var handleSearchWord = function(event) {
         }
 
         $wordDefinition.val(defString);
-      } else {
-        // if the word was already in the DB, it will be returned as a ready-to-use string
-        $wordDefinition.val(data.definition);
       }
 
-      // $wordDefinition.val(data.definition);
       $wordEtymology.val(data.etymology);
       $wordPronunciation.val(data.pronunciation);
     }

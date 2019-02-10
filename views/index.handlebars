@@ -11,6 +11,7 @@
     </nav>
 
     {{!-- <div class="container"> --}}
+
     <div class="jumbotron">
 
       <div class="container">
@@ -19,11 +20,14 @@
         <h3 id="date">WORD OF: <span id="currentDate"></span></h3>
         {{!-- <h3 id="datex">DTAE: </h3> --}}
         <h1 class="display-4">VOCABULARY WORD</h1>
-        <button id="random-word" class="btn btn-outline-light float-center">Get a new word</button>
 
       </div>
 
     </div>
+
+    {{!-- </div> --}}
+
+    <button id="random-word" class="btn btn-outline-light float-center">Get a new word</button>
 
     <div class="row">
 
@@ -45,21 +49,21 @@
 
               <div class="form-group">
                 <div class="titles">
-                  <label for="word-definition">Word Definition</label>
+                  <label for="word-definition">Definition</label>
                 </div>
                 <textarea class="form-control text-area text-box multi-line" id="word-definition" aria-describedby="word-definition" placeholder="Enter Word Definition"></textarea>
               </div>
 
               <div class="form-group">
                 <div class="titles">
-                  <label for="word-etymology">Word Etymology</label>
+                  <label for="word-etymology">Etymology</label>
                 </div>
                 <textarea class="form-control" id="word-etymology" aria-describedby="word-etymology" placeholder="Enter Word Etymology"></textarea>
               </div>
 
               <div class="form-group">
                 <div class="titles">
-                  <label for="word-pronunciation">Word Pronunciation</label>
+                  <label for="word-pronunciation">Pronunciation</label>
                 </div>
                 <textarea class="form-control" id="word-pronunciation" aria-describedby="word-pronunciation" placeholder="Link to pronunciation"></textarea>
               </div>
@@ -85,19 +89,22 @@
       <div class="col-md-5">
         <div class="row word-section">
           <div class="col-8 offset-2">
-            
+
             <div class="titles">
-              <h3>Words:</h3>
+              <h2>Saved:</h2>
             </div>
             
-            <ul id="word-list" class="list-group">
-              {{#each words}}
-              <li data-id="{{this.id}}" class="list-group-item">
-                <a href="word/{{this.id}}">{{this.text}}</a>
-                <button class="btn btn-danger float-right delete">ｘ</button>
-              </li>
-              {{/each}}
-            </ul>
+            <div class="saved-list">
+              <ul id="word-list" class="list-group">
+                {{#each words}}
+                <li data-id="{{this.id}}" class="list-group-item">
+                  <a href="word/{{this.id}}">{{this.text}}</a>
+                  <button id="delete-btn" class="btn btn-danger float-right delete">ｘ</button>
+                </li>
+                {{/each}}
+              </ul>
+            </div>
+
 
           </div>
         </div>
@@ -110,7 +117,7 @@
 <footer class="footer mt-auto py-3">
   <div class="container">
     <!-- <span class="text-muted"> footer </span> -->
-    <p><a href="/api/..">API .. List</a> | <a href="https://github.com/rjflanagan95/word-a-day">GitHub Repo</a> | <a href="https://heroku.com/rjflanagan95/word-a-day">Heroku Deployment</a>
+    <p><a href="/api/..">Oxford Dictionary API</a> | <a href="https://github.com/rjflanagan95/word-a-day">GitHub Repo</a> | <a href="https://morning-caverns-88699.herokuapp.com/">Heroku Deployment</a>
   </div>
 </footer>
 

@@ -13,8 +13,9 @@ From the root of the app directory, run `npm install` to install the node packag
 Remember to create `wordsDB` locally and add your MySQL editor password to `config.json`.
 
 You will need to get credentials for the [Oxford Dictionary API](https://developer.oxforddictionaries.com/) and pass them to the app in a `.env` file:
-    app_id=xxxxxxxx
-    app_key=xxxxxxxxxxxxxxx
+
++ app_id=xxxxxxxx
++ app_key=xxxxxxxxxxxxxxx
 
 ## Issues
 The app prevents users from adding duplicate words; if the user tries to add a duplicate word from the search bar, they will be redirected to that word's page. However, if they try to add a duplicate word via the form, the duplicate word will not be added but the user receives no feedback.

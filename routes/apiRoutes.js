@@ -22,13 +22,13 @@ module.exports = function(app) {
     var searchTerm = req.body.text;
     searchTerm = searchTerm.replace(/['"]+/g, '');
 
+    // check if the word being searched is already in the DB
     db.Word.findOne({ where: { text : searchTerm }}).then(function(dbWords) {
       if (dbWords) {
-        // if the word is already in the database, redirect to that word's page
+        // if it is, we're going to redirect to that word's page on the frontend
         res.json(dbWords);
-        // res.redirect("/word/" + dbWords.id);
       } else {
-        // otherwise, get all the info for the new word
+        // otherwise, get the info for the new word
         dict(searchTerm, function(newWord) {
           res.json(newWord);
         });
@@ -38,8 +38,17 @@ module.exports = function(app) {
 
   // Create a new word
   app.post("/api/words", function(req, res) {
-    db.Word.create(req.body).then(function(dbWord) {
-      res.json(dbWord);
+
+    // check if the word is already in the DB
+    db.Word.findOne({ where: { text : req.body.text }}).then(function(dbWords) {
+      if (dbWords) {
+        res.json(dbWords);
+      } else {
+        // if it's not, create the new word entry
+        db.Word.create(req.body).then(function(dbWord) {
+          res.json(dbWord);
+        });
+      }
     });
   });
 

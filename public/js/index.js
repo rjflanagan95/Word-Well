@@ -95,7 +95,7 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.saveWord(word).then(function() {
+  API.saveWord(word).then(function(data) {
     refreshWords();
     $wordText.val("");
     $wordDefinition.val("");

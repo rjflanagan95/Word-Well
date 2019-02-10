@@ -99,7 +99,7 @@
                 {{#each words}}
                 <li data-id="{{this.id}}" class="list-group-item">
                   <a href="word/{{this.id}}">{{this.text}}</a>
-                  <button id="delete-btn" class="btn btn-danger float-right delete">ｘ</button>
+                  <button id="delete-btn" class="btn btn-sm btn-danger float-right delete"><p style="text-align:center">x</p></button>
                 </li>
                 {{/each}}
               </ul>
@@ -117,7 +117,7 @@
 <footer class="footer mt-auto py-3">
   <div class="container">
     <!-- <span class="text-muted"> footer </span> -->
-    <p><a href="/api/..">Oxford Dictionary API</a> | <a href="https://github.com/rjflanagan95/word-a-day">GitHub Repo</a> | <a href="https://morning-caverns-88699.herokuapp.com/">Heroku Deployment</a>
+    <p><a href="https://developer.oxforddictionaries.com/">Oxford Dictionary API</a> | <a href="https://github.com/rjflanagan95/word-a-day">GitHub Repo</a> | <a href="https://morning-caverns-88699.herokuapp.com/">Heroku Deployment</a>
   </div>
 </footer>
 

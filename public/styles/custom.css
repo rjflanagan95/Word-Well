@@ -211,7 +211,7 @@ body {
 #delete-btn{
   height: 22px;
   width: 22px; 
-  text-align: center: 
+  text-align: center;
 }
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
@@ -233,7 +233,7 @@ body {
   height: 35px;
   font-size: 12px;
   /* background-color: #E1A857; */
-  background-color: #38B195; -
+  background-color: #38B195;
   color: black;
   text-align: center;
 }

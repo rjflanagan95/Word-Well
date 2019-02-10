@@ -66,8 +66,11 @@ var refreshWords = function() {
         .append($a);
 
       var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+        .addClass("btn btn-sm btn-danger float-right delete")
+        .attr({
+          id: "delete-btn"
+        })
+        .html('<p style="text-align:center">x</p>');
 
       $li.append($button);
 

@@ -12,7 +12,7 @@ From the root of the app directory, run `npm install` to install the node packag
 
 Remember to create `wordsDB` locally and add your MySQL editor password to `config.json`.
 
-You will need to get credentials for the [https://developer.oxforddictionaries.com/]Oxford Dictionary API and pass them to the app in a `.env` file:
+You will need to get credentials for the [Oxford Dictionary API](https://developer.oxforddictionaries.com/) and pass them to the app in a `.env` file:
     app_id=xxxxxxxx
     app_key=xxxxxxxxxxxxxxx
 

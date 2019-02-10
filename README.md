@@ -19,4 +19,4 @@ You will need to get credentials for the [https://developer.oxforddictionaries.c
 ## Issues
 The app prevents users from adding duplicate words; if the user tries to add a duplicate word from the search bar, they will be redirected to that word's page. However, if they try to add a duplicate word via the form, the duplicate word will not be added but the user receives no feedback.
 
-There is also no method for updating a word, although it's relatively simple to delete it and re-add it using the search bar, then adjust the information in the form before submitting,
+There is also no method for updating a word, although it's relatively simple to delete it and re-add it using the search bar, then adjust the information in the form before submitting.

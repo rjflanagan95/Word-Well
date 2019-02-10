@@ -91,17 +91,20 @@
           <div class="col-8 offset-2">
 
             <div class="titles">
-              <h3>Words:</h3>
+              <h2>Saved:</h2>
             </div>
             
-            <ul id="word-list" class="list-group">
-              {{#each words}}
-              <li data-id="{{this.id}}" class="list-group-item">
-                <a href="word/{{this.id}}">{{this.text}}</a>
-                <button class="btn btn-danger float-right delete">ｘ</button>
-              </li>
-              {{/each}}
-            </ul>
+            <div class="saved-list">
+              <ul id="word-list" class="list-group">
+                {{#each words}}
+                <li data-id="{{this.id}}" class="list-group-item">
+                  <a href="word/{{this.id}}">{{this.text}}</a>
+                  <button id="delete-btn" class="btn btn-danger float-right delete">ｘ</button>
+                </li>
+                {{/each}}
+              </ul>
+            </div>
+
 
           </div>
         </div>

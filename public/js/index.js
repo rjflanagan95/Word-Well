@@ -117,18 +117,16 @@ var handleSearchWord = function(event) {
       $wordEtymology.val("");
       $wordPronunciation.val("");
       $wordComment.val("");
-      // throw an alert that the word's not available
-      // ask user to search a different word
-      // handleSearchWord();
+      alert("That word is not available; please search for a new word");
     } else {
-      console.log(data.definition);
       $searchField.val("");
-      $wordText.val(data.text);
       
-      // if the word was already in the DB, it will be returned as a ready-to-use string
+      // if the word was already in the DB, the definition will be returned as a ready-to-use string
+      // if the word was in the DB, redirect to that word's page
       if (typeof data.definition === "string") {
-        $wordDefinition.val(data.definition);
+        $(location).attr("href", "/word/" + data.id);
       } else {
+        $wordText.val(data.text);
         // if the word is getting pulled from the API, the definition is returned as an array
         // this code strings the definitions and examples together
         var defString = "";
@@ -149,12 +147,11 @@ var handleSearchWord = function(event) {
               "\n";
           }
         }
-
+        
         $wordDefinition.val(defString);
+        $wordEtymology.val(data.etymology);
+        $wordPronunciation.val(data.pronunciation);
       }
-
-      $wordEtymology.val(data.etymology);
-      $wordPronunciation.val(data.pronunciation);
     }
   });
 };
@@ -222,4 +219,4 @@ randomWordGenerator = function() {
 };
 
 // generate a random word on loading the page
-randomWordGenerator();
+// randomWordGenerator();
